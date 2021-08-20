@@ -1,9 +1,9 @@
 type QRCodeProps = {
-  originalURL: string;
+  original_url: string;
 };
 
 interface IMatrixCodeRender {
-  build({ originalURL }: QRCodeProps): Promise<string>;
+  build({ original_url }: QRCodeProps): Promise<string>;
 }
 
 export { IMatrixCodeRender, QRCodeProps };

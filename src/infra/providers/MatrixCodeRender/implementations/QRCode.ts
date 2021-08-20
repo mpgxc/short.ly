@@ -7,8 +7,8 @@ import { IMatrixCodeRender, QRCodeProps } from "../IMatrixCodeRender";
 import { Logger } from "../../Logger";
 
 class QRCode implements IMatrixCodeRender {
-  async build({ originalURL }: QRCodeProps): Promise<string> {
-    const qrcode_buffer = await qrCodeBuild(originalURL, {
+  async build({ original_url }: QRCodeProps): Promise<string> {
+    const qrcode_buffer = await qrCodeBuild(original_url, {
       type: "image/jpeg",
       width: 500,
       scale: 10,
@@ -18,7 +18,7 @@ class QRCode implements IMatrixCodeRender {
       __dirname,
       "..",
       "template",
-      "indsex.hbs"
+      "index.hbs"
     );
 
     if (!fs.existsSync(pathTemplateRender)) {
