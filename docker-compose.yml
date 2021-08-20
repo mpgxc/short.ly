@@ -1,0 +1,11 @@
+version: "3.7"
+
+services:
+  app:
+    build: .
+    container_name: api
+    restart: always
+    volumes:
+      - .:/usr/app
+    ports:
+      - "${PORT_SERVER}:${PORT_SERVER}"
