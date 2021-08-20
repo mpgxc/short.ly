@@ -3,10 +3,10 @@ import path from "path";
 import { toDataURL as qrCodeBuild } from "qrcode";
 import handlebars from "handlebars";
 
-import { IMatrixCodeRender, QRCodeProps } from "../IMatrixCodeRender";
+import { IMatrixCodeRenderProvider, QRCodeProps } from "../IMatrixCodeRenderProvider";
 import { Logger } from "../../Logger";
 
-class QRCode implements IMatrixCodeRender {
+class QRCode implements IMatrixCodeRenderProvider {
   async build({ original_url }: QRCodeProps): Promise<string> {
     const qrcode_buffer = await qrCodeBuild(original_url, {
       type: "image/jpeg",

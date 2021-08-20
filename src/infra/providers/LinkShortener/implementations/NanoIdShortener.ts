@@ -1,7 +1,7 @@
 import { nanoid } from "nanoid";
-import { ILinkShortener, LinkShortenerResponse } from "../ILinkShortener";
+import { ILinkShortenerProvider, LinkShortenerResponse } from "../ILinkShortenerProvider";
 
-class NanoIdShortener implements ILinkShortener {
+class NanoIdShortener implements ILinkShortenerProvider {
   build(): LinkShortenerResponse {
     const SIZE_NANOID = 6;
 

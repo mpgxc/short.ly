@@ -1,2 +1,2 @@
-export { ILinkShortener } from "./ILinkShortener";
+export { ILinkShortenerProvider } from "./ILinkShortenerProvider";
 export { NanoIdShortener } from "./implementations/NanoIdShortener";

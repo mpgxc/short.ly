@@ -4,8 +4,8 @@ type LinkShortenerResponse = {
   qrcode_url: string;
 };
 
-interface ILinkShortener {
+interface ILinkShortenerProvider {
   build(): LinkShortenerResponse;
 }
 
-export { ILinkShortener, LinkShortenerResponse };
+export { ILinkShortenerProvider, LinkShortenerResponse };

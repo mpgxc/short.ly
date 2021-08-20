@@ -1,2 +1,2 @@
-export { IMatrixCodeRender } from "./IMatrixCodeRender";
+export { IMatrixCodeRenderProvider } from "./IMatrixCodeRenderProvider";
 export { QRCode } from "./implementations/QRCode";
