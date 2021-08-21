@@ -3,7 +3,7 @@ import { IMatrixCodeRenderProvider } from "../../../infra/providers/MatrixCodeRe
 import { ILinksRepository } from "../../repositories/ILinksRepository";
 
 type CreateShortenedQRCodeResponse = {
-    qrcode_buffer: string;
+    qrcode_buffer: string | Buffer;
 }
 
 @injectable()
