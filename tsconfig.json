@@ -5,7 +5,9 @@
       "es2019"
     ],
     "sourceMap": true,
-    "outDir": "build",
+    "rootDir": "./",
+    "baseUrl": "./src",
+    "outDir": "./build",
     "esModuleInterop": true,
     "module": "commonjs",
     "strict": true,

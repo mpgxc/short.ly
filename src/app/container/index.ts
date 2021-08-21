@@ -12,16 +12,6 @@ import {
 	QRCodeBuffer,
 } from '../../infra/providers/MatrixCodeRender';
 
-container.registerSingleton<ILinkShortenerProvider>(
-	'LinkShortenerProvider',
-	NanoIdShortener,
-);
-
-container.registerSingleton<ILinksRepository>(
-	'LinksRepository',
-	LinksRepository,
-);
-
 const QR_PROVIDER =
 	process.env.QRCODE_PROVIDER === 'BUFFER'
 		? container.resolve(QRCodeBuffer)
@@ -30,4 +20,14 @@ const QR_PROVIDER =
 container.registerInstance<IMatrixCodeRenderProvider>(
 	'MatrixCodeRenderProvider',
 	QR_PROVIDER,
+);
+
+container.registerSingleton<ILinkShortenerProvider>(
+	'LinkShortenerProvider',
+	NanoIdShortener,
+);
+
+container.registerSingleton<ILinksRepository>(
+	'LinksRepository',
+	LinksRepository,
 );
