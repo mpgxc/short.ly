@@ -3,7 +3,7 @@ type QRCodeProps = {
 };
 
 interface IMatrixCodeRenderProvider {
-  build({ original_url }: QRCodeProps): Promise<string>;
+  build({ original_url }: QRCodeProps): Promise<string | Buffer>;
 }
 
 export { IMatrixCodeRenderProvider, QRCodeProps };

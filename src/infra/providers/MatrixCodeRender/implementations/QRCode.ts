@@ -5,7 +5,9 @@ import handlebars from "handlebars";
 
 import { IMatrixCodeRenderProvider, QRCodeProps } from "../IMatrixCodeRenderProvider";
 import { Logger } from "../../Logger";
+import { injectable } from "tsyringe";
 
+@injectable()
 class QRCode implements IMatrixCodeRenderProvider {
   async build({ original_url }: QRCodeProps): Promise<string> {
     const qrcode_buffer = await qrCodeBuild(original_url, {
