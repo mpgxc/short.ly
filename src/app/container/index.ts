@@ -2,7 +2,7 @@ import { container } from 'tsyringe';
 import { ILinksRepository } from '../../domain/repositories/ILinksRepository';
 import { LinksRepository } from '../../domain/repositories/memory/LinksRepository';
 import { ILinkShortenerProvider, NanoIdShortener } from '../../infra/providers/LinkShortener';
-import { IMatrixCodeRenderProvider, QRCode } from '../../infra/providers/MatrixCodeRender';
+import { IMatrixCodeRenderProvider, QRCode, QRCodeBuffer } from '../../infra/providers/MatrixCodeRender';
 
 container.registerSingleton<ILinkShortenerProvider>(
     'LinkShortenerProvider',
@@ -14,7 +14,12 @@ container.registerSingleton<ILinksRepository>(
     LinksRepository,
 );
 
-container.registerSingleton<IMatrixCodeRenderProvider>(
+const QR_PROVIDER = process.env.QRCODE_PROVIDER === 'BUFFER'
+    ? container.resolve(QRCodeBuffer)
+    : container.resolve(QRCode)
+
+container.registerInstance<IMatrixCodeRenderProvider>(
     'MatrixCodeRenderProvider',
-    QRCode,
+    QR_PROVIDER,
 );
+
