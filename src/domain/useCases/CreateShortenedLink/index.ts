@@ -1,5 +1,5 @@
-import { CreateShortenedLinkController } from "./CreateShortenedLinkController";
+import { CreateShortenedLinkController } from './CreateShortenedLinkController';
 
-const createShortenedLinkController = new CreateShortenedLinkController()
+const createShortenedLinkController = new CreateShortenedLinkController();
 
-export { createShortenedLinkController }
+export { createShortenedLinkController };

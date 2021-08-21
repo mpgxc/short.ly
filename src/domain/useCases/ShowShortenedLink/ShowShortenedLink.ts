@@ -1,30 +1,29 @@
-import { inject, injectable } from "tsyringe";
-import { ILinksRepository } from "../../repositories/ILinksRepository";
+import { inject, injectable } from 'tsyringe';
+
+import { ILinksRepository } from '../../repositories/ILinksRepository';
 
 type ShowShortenedLinkResponse = {
-    original_url: string;
-}
+	original_url: string;
+};
 
 @injectable()
 class ShowShortenedLink {
+	constructor(
+		@inject('LinksRepository')
+		private readonly linksRepository: ILinksRepository,
+	) {}
 
-    constructor(
-        @inject('LinksRepository')
-        private readonly linksRepository: ILinksRepository
-    ) { }
+	async run(unique_id: string): Promise<ShowShortenedLinkResponse> {
+		const links = await this.linksRepository.findByCode(unique_id);
 
-    async run(unique_id: string): Promise<ShowShortenedLinkResponse> {
+		if (!links) {
+			throw new Error('Links not found!');
+		}
 
-        const links = await this.linksRepository.findByCode(unique_id)
-
-        if (!links) {
-            throw new Error('Links not found!')
-        }
-
-        return {
-            ...links
-        }
-    }
+		return {
+			...links,
+		};
+	}
 }
 
 export { ShowShortenedLink };

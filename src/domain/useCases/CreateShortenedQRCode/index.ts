@@ -1,5 +1,5 @@
-import { CreateShortenedQRCodeController } from "./CreateShortenedQRCodeController";
+import { CreateShortenedQRCodeController } from './CreateShortenedQRCodeController';
 
-const createShortenedQRCodeController = new CreateShortenedQRCodeController ()
+const createShortenedQRCodeController = new CreateShortenedQRCodeController();
 
-export { createShortenedQRCodeController }
+export { createShortenedQRCodeController };

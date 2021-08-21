@@ -1,5 +1,5 @@
-import { ShowShortenedLinkController } from "./ShowShortenedLinkController";
+import { ShowShortenedLinkController } from './ShowShortenedLinkController';
 
-const showShortenedLinkController = new ShowShortenedLinkController ()
+const showShortenedLinkController = new ShowShortenedLinkController();
 
-export { showShortenedLinkController }
+export { showShortenedLinkController };
