@@ -12,6 +12,12 @@ class CreateShortenedQRCodeController {
 
             const { qrcode_buffer } = await createShortenedQRCode.run(id);
 
+            if (qrcode_buffer instanceof Buffer) {
+
+                return response.end(qrcode_buffer)
+
+            }
+
             return response.status(201).send(qrcode_buffer);
 
         } catch (error) {
