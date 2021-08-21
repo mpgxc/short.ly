@@ -10,11 +10,11 @@ class ShowShortenedLinkController {
 
             const showShortenedLink = container.resolve(ShowShortenedLink);
 
-            const x = await showShortenedLink.run(id)
+            const links = await showShortenedLink.run(id)
 
             return response
                 .status(200)
-                .redirect(x.original_url)
+                .redirect(links.original_url)
 
         } catch (error) {
             return response
