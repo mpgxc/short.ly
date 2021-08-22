@@ -12,8 +12,8 @@ import {
 
 @injectable()
 class QRCode implements IMatrixCodeRenderProvider {
-    async build({ original_url }: QRCodeProps): Promise<string> {
-        const qrcode_buffer = await qrCodeBuild(original_url, {
+    async build({ url }: QRCodeProps): Promise<string> {
+        const qrcode_buffer = await qrCodeBuild(url, {
             type: 'image/jpeg',
             width: 500,
             scale: 10,

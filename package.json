@@ -34,8 +34,8 @@
         "eslint-plugin-prettier": "^3.4.1",
         "prettier": "^2.3.2",
         "rimraf": "^3.0.2",
-        "tsconfig-paths": "^3.10.1",
         "ts-node-dev": "^1.1.8",
+        "tsconfig-paths": "^3.10.1",
         "typescript": "^4.3.5"
     },
     "dependencies": {
@@ -53,7 +53,7 @@
         "uuid": "^8.3.2"
     },
     "scripts": {
-        "start":"node build/infra/http/server.js",
+        "start": "node build/infra/http/server.js",
         "build": "rimraf build; babel src --extensions \".js,.ts\" --out-dir build --copy-files --no-copy-ignored",
         "lint": "eslint src/**/*.ts --fix",
         "dev": "tsnd -r tsconfig-paths/register  --transpile-only --ignore-watch node_modules --respawn  src/infra/http/server.ts"

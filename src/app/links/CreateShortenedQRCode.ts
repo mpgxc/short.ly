@@ -18,16 +18,16 @@ class CreateShortenedQRCode {
     ) {}
 
     async run(unique_id: string): Promise<CreateShortenedQRCodeResponse> {
-        const links = await this.linksRepository.findByCode(unique_id);
+        const links = await this.linksRepository.findByToken(unique_id);
 
         if (!links) {
             throw new Error('Links not found!');
         }
 
-        const { original_url } = links;
+        const { url } = links;
 
         const qrcode_buffer = await this.matrixCodeRenderProvider.build({
-            original_url,
+            url,
         });
 
         return { qrcode_buffer };

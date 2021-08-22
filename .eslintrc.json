@@ -22,6 +22,7 @@
         "import-helpers"
     ],
     "rules": {
+        "no-underscore-dangle": "off",
         "prettier/prettier": "error",
         "camelcase": "off",
         "no-new": "off",
