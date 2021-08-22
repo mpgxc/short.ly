@@ -1,11 +1,11 @@
 type LinkShortenerResponse = {
-	unique_id: string;
-	short_url: string;
-	qrcode_url: string;
+    unique_id: string;
+    short_url: string;
+    qrcode_url: string;
 };
 
 interface ILinkShortenerProvider {
-	build(): LinkShortenerResponse;
+    build(): LinkShortenerResponse;
 }
 
 export { ILinkShortenerProvider, LinkShortenerResponse };

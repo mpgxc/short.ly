@@ -1,8 +1,10 @@
 import { Router } from 'express';
 
-import { createShortenedLinkController } from '../../domain/useCases/CreateShortenedLink';
-import { createShortenedQRCodeController } from '../../domain/useCases/CreateShortenedQRCode';
-import { showShortenedLinkController } from '../../domain/useCases/ShowShortenedLink';
+import {
+    createShortenedLinkController,
+    showShortenedLinkController,
+    createShortenedQRCodeController,
+} from '@presenter/controllers/links';
 
 const routes = Router();
 
