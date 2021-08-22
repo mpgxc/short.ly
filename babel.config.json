@@ -43,7 +43,8 @@
                     "@app": "./src/app",
                     "@domain": "./src/domain",
                     "@infra": "./src/infra",
-                    "@presenter": "./src/presenter"
+                    "@presenter": "./src/presenter",
+                    "@commons":"./src/commons"
                 }
             }
         ]
