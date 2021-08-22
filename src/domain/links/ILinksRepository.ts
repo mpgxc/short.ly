@@ -1,8 +1,8 @@
-import { CreateShortenedLinkDTO } from '@app/links/CreateShortenedLinkDTO';
+import { Links } from './Links';
 
 interface ILinksRepository {
-    save(data: CreateShortenedLinkDTO): Promise<void>;
-    findByCode(id: string): Promise<CreateShortenedLinkDTO | null>;
+    save(data: Links): Promise<void>;
+    findByToken(token: string): Promise<Links | null>;
 }
 
 export { ILinksRepository };
