@@ -15,7 +15,7 @@ class ShowShortenedLinkController {
 
             const links = await showShortenedLink.run(id);
 
-            return response.status(302).redirect(links.original_url);
+            return response.status(302).redirect(links.url);
         } catch (error) {
             return response.status(400).json({ message: error.message });
         }
