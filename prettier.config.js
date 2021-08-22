@@ -4,5 +4,4 @@ module.exports = {
     arrowParens: 'avoid',
     tabWidth: 4,
     bracketSpacing: true,
-    useTabs: true,
-  }
+};

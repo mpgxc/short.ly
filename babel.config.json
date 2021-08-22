@@ -40,27 +40,10 @@
             "module-resolver",
             {
                 "alias": {
-                    "@domain/*": [
-                        "domain/*"
-                    ],
-                    "@core/*": [
-                        "core/*"
-                    ],
-                    "@infra/*": [
-                        "infra/*"
-                    ],
-                    "@shared/*": [
-                        "shared/*"
-                    ],
-                    "@config/*": [
-                        "config/*"
-                    ],
-                    "@data/*": [
-                        "data/*"
-                    ],
-                    "@app/*": [
-                        "app/*"
-                    ]
+                    "@app": "./src/app",
+                    "@domain": "./src/domain",
+                    "@infra": "./src/infra",
+                    "@presenter": "./src/presenter"
                 }
             }
         ]

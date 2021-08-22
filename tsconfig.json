@@ -5,9 +5,6 @@
             "es2019"
         ],
         "sourceMap": true,
-        "rootDir": "./",
-        "baseUrl": "./src",
-        "outDir": "./build",
         "esModuleInterop": true,
         "module": "commonjs",
         "strict": true,
@@ -15,24 +12,18 @@
         "forceConsistentCasingInFileNames": true,
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true,
+        "rootDir": "./",
+        "baseUrl": "./src",
+        "outDir": "./build",
         "paths": {
             "@domain/*": [
                 "domain/*"
             ],
-            "@core/*": [
-                "core/*"
-            ],
             "@infra/*": [
                 "infra/*"
             ],
-            "@shared/*": [
-                "shared/*"
-            ],
-            "@config/*": [
-                "config/*"
-            ],
-            "@data/*": [
-                "data/*"
+            "@presenter/*": [
+                "presenter/*"
             ],
             "@app/*": [
                 "app/*"
