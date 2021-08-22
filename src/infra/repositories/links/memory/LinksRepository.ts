@@ -1,15 +1,16 @@
-import { CreateShortenedLinkDTO } from '@app/links/CreateShortenedLinkDTO';
+import { LinksMapper } from '@domain/links';
 import { ILinksRepository } from '@domain/links/ILinksRepository';
+import { Links } from '@domain/links/Links';
 
 class LinksRepository implements ILinksRepository {
-    private links: CreateShortenedLinkDTO[];
+    private links: Links[];
 
     constructor() {
         this.links = [];
     }
 
-    async findByCode(id: string): Promise<CreateShortenedLinkDTO | null> {
-        const links = this.links.find(link => link.unique_id === id);
+    async findByToken(token: string): Promise<Links | null> {
+        const links = this.links.find(link => link.token === token);
 
         if (!links) {
             return null;
@@ -18,18 +19,10 @@ class LinksRepository implements ILinksRepository {
         return links;
     }
 
-    async save({
-        original_url,
-        qrcode_url,
-        short_url,
-        unique_id,
-    }: CreateShortenedLinkDTO): Promise<void> {
-        this.links.push({
-            original_url,
-            qrcode_url,
-            short_url,
-            unique_id,
-        });
+    async save(links: Links): Promise<void> {
+        const { id, token, url } = LinksMapper.toPersistence(links);
+
+        this.links.push({ id, token, url } as Links);
     }
 }
 
