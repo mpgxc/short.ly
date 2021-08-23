@@ -1,5 +1,6 @@
 import { inject, injectable } from 'tsyringe';
 
+import { InjectableModules } from '@app/container/InjectableModules';
 import { ILinksRepository } from '@domain/links/ILinksRepository';
 import { IMatrixCodeRenderProvider } from '@infra/providers/MatrixCodeRender';
 
@@ -10,10 +11,10 @@ type CreateShortenedQRCodeResponse = {
 @injectable()
 class CreateShortenedQRCode {
     constructor(
-        @inject('LinksRepository')
+        @inject(InjectableModules.LINKS_REPOSITORY)
         private readonly linksRepository: ILinksRepository,
 
-        @inject('MatrixCodeRenderProvider')
+        @inject(InjectableModules.MATRIX_CODERENDER_PROVIDER)
         private readonly matrixCodeRenderProvider: IMatrixCodeRenderProvider,
     ) {}
 

@@ -1,5 +1,6 @@
 import { inject, injectable } from 'tsyringe';
 
+import { InjectableModules } from '@app/container/InjectableModules';
 import { ILinksRepository, Links, URL } from '@domain/links';
 import { ILinkShortenerProvider } from '@infra/providers/LinkShortener';
 
@@ -9,10 +10,10 @@ import { ResponseShortenedLink } from './ResponseShortenedLink';
 @injectable()
 class CreateShortenedLink {
     constructor(
-        @inject('LinksRepository')
+        @inject(InjectableModules.LINKS_REPOSITORY)
         private readonly linksRepository: ILinksRepository,
 
-        @inject('LinkShortenerProvider')
+        @inject(InjectableModules.LINK_SHORTENER_PROVIDER)
         private readonly linkShortenerProvider: ILinkShortenerProvider,
     ) {}
 
