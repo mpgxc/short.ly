@@ -1,7 +1,7 @@
 import { Links } from './Links';
 
 interface ILinksRepository {
-    save(data: Links): Promise<void>;
+    save(links: Links): Promise<void>;
     findByToken(token: string): Promise<Links | null>;
 }
 

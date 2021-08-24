@@ -1,3 +1,5 @@
+import { Links as PersistenceLinks } from '@prisma/client';
+
 import { Links } from './Links';
 import { URL } from './URL';
 
@@ -8,7 +10,7 @@ type PersistenceProps = {
 };
 
 class LinksMapper {
-    static toDomain({ id, token, url }: PersistenceProps): Links {
+    static toDomain({ id, token, url }: PersistenceLinks): Links {
         return Links.build(
             {
                 token,

@@ -10,7 +10,7 @@ import {
     QRCode,
     IMatrixCodeRenderProvider,
 } from '@infra/providers/MatrixCodeRender';
-import { LinksRepository } from '@infra/repositories/links/memory/LinksRepository';
+import { LinksRepository } from '@infra/repositories/links/prisma/LinksRepository';
 
 import { InjectableModules } from './InjectableModules';
 
