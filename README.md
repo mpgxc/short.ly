@@ -24,6 +24,11 @@
 
 ## 🚀 Rotas
 
+<h1 align="center">
+    <a href="https://insomnia.rest/run/?label=Endpoints&uri=https%3A%2F%2Fgithub.com%2Fmpgxc%2Fshort.ly%2Fblob%2Fmain%2Fendpoints.json" target="_blank"><img src="https://insomnia.rest/images/run.svg" alt="Run in Insomnia"></a>
+
+</h1>
+
 - `POST api/short`: Essa rota envia o corpo com a url para ser encurtada. Ex: `{"url": "https://www.example.com.br"}`
 
 - `GET api/qrcode/:code`: Essa rota retorna um qrcode renderizado para um code passado nos parâmetros (`/:code`) que redireciona para a url inserida na rota `POST api/short`;
