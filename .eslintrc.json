@@ -22,6 +22,7 @@
         "import-helpers"
     ],
     "rules": {
+        "@typescript-eslint/ban-types": "off",
         "no-underscore-dangle": "off",
         "prettier/prettier": "error",
         "camelcase": "off",
