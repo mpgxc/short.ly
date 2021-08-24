@@ -9,14 +9,16 @@ class LinksRepository implements ILinksRepository {
         this.links = [];
     }
 
+    async findByURL(url: string): Promise<Links | null> {
+        const links = this.links.find(link => link.url === url);
+
+        return links || null;
+    }
+
     async findByToken(token: string): Promise<Links | null> {
         const links = this.links.find(link => link.token === token);
 
-        if (!links) {
-            return null;
-        }
-
-        return links;
+        return links || null;
     }
 
     async save(links: Links): Promise<void> {

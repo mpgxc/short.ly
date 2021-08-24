@@ -20,6 +20,16 @@ class LinksRepository implements ILinksRepository {
 
         return data ? LinksMapper.toDomain(data) : null;
     }
+
+    async findByURL(url: string): Promise<Links | null> {
+        const data = await prisma.links.findUnique({
+            where: {
+                url,
+            },
+        });
+
+        return data ? LinksMapper.toDomain(data) : null;
+    }
 }
 
 export { LinksRepository };
