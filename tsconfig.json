@@ -1,8 +1,8 @@
 {
     "compilerOptions": {
-        "target": "ES2019",
+        "target": "es2021",
         "lib": [
-            "es2019"
+            "esnext"
         ],
         "sourceMap": true,
         "esModuleInterop": true,
