@@ -1,5 +1,5 @@
 <h1 align="center">
-    <img alt="Short.Ly" src="" width="200px" />
+    <img alt="Short.Ly" src=".github/logo.png" width="300px" />
 </h1>
 
 <h3 align="center">
@@ -24,11 +24,11 @@
 
 ## 🚀 Rotas
 
-- `POST api/short`: Essa rota envia o corpo com a url para ser encurtada. Ex: `{"url": "https://www.example.com.br"}` 
+- `POST api/short`: Essa rota envia o corpo com a url para ser encurtada. Ex: `{"url": "https://www.example.com.br"}`
 
 - `GET api/qrcode/:code`: Essa rota retorna um qrcode renderizado para um code passado nos parâmetros (`/:code`) que redireciona para a url inserida na rota `POST api/short`;
 
-- `GET api/short/:code`: Essa rota recebe um code passado nos parâmetros (`/:code`) e redireciona para a rota original. 
+- `GET api/short/:code`: Essa rota recebe um code passado nos parâmetros (`/:code`) e redireciona para a rota original.
 
 
 ## ⚙️ Tecnologias
