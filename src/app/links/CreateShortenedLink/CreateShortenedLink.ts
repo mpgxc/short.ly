@@ -18,6 +18,12 @@ class CreateShortenedLink {
     ) {}
 
     async run(url: string): Promise<ResponseShortenedLink> {
+        const urlAlreadyExists = await this.linksRepository.findByURL(url);
+
+        if (urlAlreadyExists) {
+            throw new Error(`URL already exists!`);
+        }
+
         const { token } = this.linkShortenerProvider.build();
 
         const links = Links.build({
