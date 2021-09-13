@@ -1,40 +1,40 @@
 {
-    "compilerOptions": {
-        "target": "es2021",
-        "lib": [
-            "esnext"
-        ],
-        "sourceMap": true,
-        "esModuleInterop": true,
-        "module": "commonjs",
-        "allowJs": true,
-        "strict": false,
-        "removeComments": true,
-        "skipLibCheck": true,
-        "resolveJsonModule": true,
-        "forceConsistentCasingInFileNames": true,
-        "experimentalDecorators": true,
-        "emitDecoratorMetadata": true,
-        "rootDir": "./",
-        "baseUrl": "./src",
-        "outDir": "./build",
-        "strictNullChecks": false,
-        "paths": {
-            "@domain/*": [
-                "domain/*"
-            ],
-            "@infra/*": [
-                "infra/*"
-            ],
-            "@presenter/*": [
-                "presenter/*"
-            ],
-            "@app/*": [
-                "app/*"
-            ],
-            "@commons/*": [
-                "commons/*"
-            ]
-        }
+  "compilerOptions": {
+    "target": "es2021",
+    "lib": [
+      "esnext"
+    ],
+    "sourceMap": true,
+    "esModuleInterop": true,
+    "module": "commonjs",
+    "allowJs": true,
+    "strict": false,
+    "removeComments": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "forceConsistentCasingInFileNames": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "rootDir": "./",
+    "baseUrl": "./src",
+    "outDir": "./build",
+    "strictNullChecks": false,
+    "paths": {
+      "@domain/*": [
+        "domain/*"
+      ],
+      "@infra/*": [
+        "infra/*"
+      ],
+      "@presenter/*": [
+        "presenter/*"
+      ],
+      "@app/*": [
+        "app/*"
+      ],
+      "@commons/*": [
+        "commons/*"
+      ]
     }
+  }
 }
