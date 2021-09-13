@@ -1,28 +1,24 @@
-import { Entity } from '@commons/Entity';
-import { Account, TAccountProps } from '@domain/account/Account';
+import {
+    AbstractAccount,
+    TAccountProps,
+} from '@domain/account/AbstractAccount';
+import { Links } from '@domain/links';
 
-/**
- * If in the future we want to add a new property to the client, we can do it here
- */
-type TCustomerProps = {};
+class Customer extends AbstractAccount {
+    private readonly links: Links[];
 
-type ICreateCustomerDTO = {
-    customer: TCustomerProps;
-    account: TAccountProps;
-};
-
-class Customer extends Entity<TCustomerProps> {
-    protected account: Account;
-
-    private constructor(props: ICreateCustomerDTO, id?: string) {
-        super(props.customer, id);
-
-        this.account = Account.build(props.account);
+    private constructor(props: TAccountProps, id?: string) {
+        super(props, id);
+        this.links = [];
     }
 
-    public static build(props: ICreateCustomerDTO, id?: string): Customer {
-        return new Customer(props, id);
+    public getLinks(): Links[] {
+        return this.links;
+    }
+
+    static build(data: TAccountProps, id?: string): Customer {
+        return new Customer(data, id);
     }
 }
 
-export { Customer, ICreateCustomerDTO };
+export { Customer };
