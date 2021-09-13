@@ -1,6 +1,4 @@
-import { Entity } from '@commons/Entity';
-
-type TAccountRoles = 'Administrator' | 'Customer';
+import { Entity } from '@domain/commons/Entity';
 
 type TAccountProps = {
     name: string;
@@ -9,11 +7,10 @@ type TAccountProps = {
     password: string;
     bio?: string;
     avatar?: string;
-    role: TAccountRoles;
 };
 
-class Account extends Entity<TAccountProps> {
-    private constructor(props: TAccountProps, id?: string) {
+abstract class AbstractAccount extends Entity<TAccountProps> {
+    constructor(props: TAccountProps, id?: string) {
         super(props, id);
     }
 
@@ -37,14 +34,9 @@ class Account extends Entity<TAccountProps> {
         return this.props.avatar;
     }
 
-    public static build(props: TAccountProps, id?: string): Account {
-        return new Account(
-            {
-                ...props,
-            },
-            id,
-        );
+    get password(): string {
+        return this.props.password;
     }
 }
 
-export { Account, TAccountRoles, TAccountProps };
+export { AbstractAccount, TAccountProps };
