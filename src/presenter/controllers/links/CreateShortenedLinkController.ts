@@ -5,18 +5,18 @@ import { CreateShortenedLink } from '@app/links/CreateShortenedLink';
 
 type ShortenedLinkRequest = {
   url: string;
-  customerId: string;
+  customer_id: string;
 };
 
 class CreateShortenedLinkController {
   async handle(request: Request, response: Response): Promise<Response> {
     try {
-      const { url, customerId } = request.body as ShortenedLinkRequest;
+      const { url, customer_id } = request.body as ShortenedLinkRequest;
 
       const createShortenedLink = container.resolve(CreateShortenedLink);
 
       const { qrcode_url, short_url } = await createShortenedLink.run({
-        customerId,
+        customer_id,
         url,
       });
 
