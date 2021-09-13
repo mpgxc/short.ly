@@ -1,9 +1,9 @@
 type LinkShortenerResponse = {
-    token: string;
+  token: string;
 };
 
 interface ILinkShortenerProvider {
-    build(): LinkShortenerResponse;
+  build(): LinkShortenerResponse;
 }
 
 export { ILinkShortenerProvider, LinkShortenerResponse };

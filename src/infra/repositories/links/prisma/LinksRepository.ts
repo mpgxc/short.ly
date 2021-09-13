@@ -3,33 +3,33 @@ import { ILinksRepository } from '@domain/links/ILinksRepository';
 import { prisma } from '@infra/database/prisma';
 
 class LinksRepository implements ILinksRepository {
-    async save(links: Links): Promise<void> {
-        const data = LinksMapper.toPersistence(links);
+  async save(links: Links): Promise<void> {
+    const data = LinksMapper.toPersistence(links);
 
-        await prisma.links.create({
-            data,
-        });
-    }
+    await prisma.links.create({
+      data,
+    });
+  }
 
-    async findByToken(token: string): Promise<Links | null> {
-        const data = await prisma.links.findUnique({
-            where: {
-                token,
-            },
-        });
+  async findByToken(token: string): Promise<Links | null> {
+    const data = await prisma.links.findUnique({
+      where: {
+        token,
+      },
+    });
 
-        return data ? LinksMapper.toDomain(data) : null;
-    }
+    return data ? LinksMapper.toDomain(data) : null;
+  }
 
-    async findByURL(url: string): Promise<Links | null> {
-        const data = await prisma.links.findUnique({
-            where: {
-                url,
-            },
-        });
+  async findByURL(url: string): Promise<Links | null> {
+    const data = await prisma.links.findUnique({
+      where: {
+        url,
+      },
+    });
 
-        return data ? LinksMapper.toDomain(data) : null;
-    }
+    return data ? LinksMapper.toDomain(data) : null;
+  }
 }
 
 export { LinksRepository };

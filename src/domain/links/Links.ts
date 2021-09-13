@@ -1,28 +1,33 @@
-import { Entity } from '@commons/.';
+import { Entity } from '@domain/commons';
 
 import { URL } from './URL';
 
-type ILinksProps = {
-    token: string;
-    url: URL;
+type LinksProps = {
+  customerId: string;
+  token: string;
+  url: URL;
 };
 
-class Links extends Entity<ILinksProps> {
-    private constructor(props: ILinksProps, id?: string) {
-        super(props, id);
-    }
+class Links extends Entity<LinksProps> {
+  private constructor(props: LinksProps, id?: string) {
+    super(props, id);
+  }
 
-    get token(): string {
-        return this.props.token;
-    }
+  get token(): string {
+    return this.props.token;
+  }
 
-    get url(): string {
-        return this.props.url.getValue();
-    }
+  get url(): string {
+    return this.props.url.value;
+  }
 
-    public static build(props: ILinksProps, id?: string): Links {
-        return new Links(props, id);
-    }
+  get customerId(): string {
+    return this.props.customerId;
+  }
+
+  public static build(props: LinksProps, id?: string): Links {
+    return new Links(props, id);
+  }
 }
 
 export { Links };

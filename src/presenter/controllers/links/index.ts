@@ -7,7 +7,7 @@ const createShortenedLinkController = new CreateShortenedLinkController();
 const showShortenedLinkController = new ShowShortenedLinkController();
 
 export {
-    createShortenedQRCodeController,
-    createShortenedLinkController,
-    showShortenedLinkController,
+  createShortenedQRCodeController,
+  createShortenedLinkController,
+  showShortenedLinkController,
 };
