@@ -17,5 +17,38 @@ model Links {
     created_at DateTime @default(now())
     updated_at DateTime @default(now()) @updatedAt
 
+    customer_id String?
+    customer    Customer? @relation(fields: [customer_id], references: [id])
+
     @@map("links")
+}
+
+model Customer {
+    id         String   @id @default(uuid())
+    name       String
+    user_name  String   @unique
+    email      String   @unique
+    password   String
+    bio        String?
+    avatar     String?
+    created_at DateTime @default(now())
+    updated_at DateTime @default(now()) @updatedAt
+
+    links Links[]
+
+    @@map("customer")
+}
+
+model Administrator {
+    id         String   @id @default(uuid())
+    name       String
+    user_name  String   @unique
+    email      String   @unique
+    password   String
+    bio        String?
+    avatar     String?
+    created_at DateTime @default(now())
+    updated_at DateTime @default(now()) @updatedAt
+
+    @@map("administrator")
 }
