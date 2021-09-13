@@ -4,6 +4,16 @@ import { ICustomerRepository } from '@domain/customer/ICustomerRepository';
 import { prisma } from '@infra/database/prisma';
 
 class CustomerRepository implements ICustomerRepository {
+    async findById(id: string): Promise<Customer | null> {
+        const customer = await prisma.customer.findUnique({
+            where: {
+                id,
+            },
+        });
+
+        return customer ? CustomerMapper.toDomain(customer) : null;
+    }
+
     async list(): Promise<Customer[]> {
         const customers = await prisma.customer.findMany();
 
