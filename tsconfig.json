@@ -7,14 +7,18 @@
         "sourceMap": true,
         "esModuleInterop": true,
         "module": "commonjs",
-        "strict": true,
+        "allowJs": true,
+        "strict": false,
+        "removeComments": true,
         "skipLibCheck": true,
+        "resolveJsonModule": true,
         "forceConsistentCasingInFileNames": true,
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true,
         "rootDir": "./",
         "baseUrl": "./src",
         "outDir": "./build",
+        "strictNullChecks": false,
         "paths": {
             "@domain/*": [
                 "domain/*"
