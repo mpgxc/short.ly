@@ -1,5 +1,8 @@
 import { Customer } from '@domain/customer/Customer';
-import { CustomerMapper } from '@domain/customer/CustomerMapper';
+import {
+  CustomerMapper,
+  ListCustomerProps,
+} from '@domain/customer/CustomerMapper';
 import { ICustomerRepository } from '@domain/customer/ICustomerRepository';
 import { prisma } from '@infra/database/prisma';
 
@@ -14,10 +17,10 @@ class CustomerRepository implements ICustomerRepository {
     return customer ? CustomerMapper.toDomain(customer) : null;
   }
 
-  async list(): Promise<Customer[]> {
+  async list(): Promise<ListCustomerProps[]> {
     const customers = await prisma.customer.findMany();
 
-    return customers.map(CustomerMapper.toDomain);
+    return customers.map(CustomerMapper.toRender);
   }
 
   async save(customer: Customer): Promise<void> {
