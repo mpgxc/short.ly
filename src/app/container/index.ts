@@ -1,5 +1,6 @@
 import { container } from 'tsyringe';
 
+import { ICustomerRepository } from '@domain/customer/ICustomerRepository';
 import { ILinksRepository } from '@domain/links/ILinksRepository';
 import {
   ILinkShortenerProvider,
@@ -10,6 +11,7 @@ import {
   QRCode,
   IMatrixCodeRenderProvider,
 } from '@infra/providers/MatrixCodeRender';
+import { CustomerRepository } from '@infra/repositories/customer/CustomerRepository';
 import { LinksRepository } from '@infra/repositories/links/prisma/LinksRepository';
 
 import { InjectableModules } from './InjectableModules';
@@ -32,4 +34,9 @@ container.registerSingleton<ILinkShortenerProvider>(
 container.registerSingleton<ILinksRepository>(
   InjectableModules.LINKS_REPOSITORY,
   LinksRepository,
+);
+
+container.registerSingleton<ICustomerRepository>(
+  InjectableModules.CUSTOMER_REPOSITORY,
+  CustomerRepository,
 );
