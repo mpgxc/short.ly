@@ -1,14 +1,15 @@
-import { Entity } from '@commons/.';
+import { Entity } from '@domain/commons';
 
 import { URL } from './URL';
 
-type ILinksProps = {
+type LinksProps = {
+    customerId: string;
     token: string;
     url: URL;
 };
 
-class Links extends Entity<ILinksProps> {
-    private constructor(props: ILinksProps, id?: string) {
+class Links extends Entity<LinksProps> {
+    private constructor(props: LinksProps, id?: string) {
         super(props, id);
     }
 
@@ -17,10 +18,14 @@ class Links extends Entity<ILinksProps> {
     }
 
     get url(): string {
-        return this.props.url.getValue();
+        return this.props.url.value;
     }
 
-    public static build(props: ILinksProps, id?: string): Links {
+    get customerId(): string {
+        return this.props.customerId;
+    }
+
+    public static build(props: LinksProps, id?: string): Links {
         return new Links(props, id);
     }
 }

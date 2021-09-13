@@ -1,33 +1,28 @@
 class URL {
-    private value: string;
-
-    private constructor(value: string) {
-        this.value = value;
-    }
+    private constructor(private readonly _value: string) {}
 
     private static format(value: string): string {
         return value.replace(/\s/g, '').toLowerCase();
     }
 
-    private static validate(value: string): string | null {
+    private static validate(value: string): boolean {
         const pattern =
-            /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-/]))?/;
+            /^(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-/]))?$/;
 
         if (!pattern.test(value)) {
-            return null;
+            return false;
         }
-        return value;
+
+        return true;
     }
 
-    getValue(): string {
-        return this.value;
+    get value(): string {
+        return this._value;
     }
 
-    static build(value: string): URL {
-        const valueFormated = this.format(value);
-
-        if (!this.validate(valueFormated)) {
-            throw new Error('Invalid URL!');
+    public static build(value: string): URL {
+        if (!this.validate(value)) {
+            return new URL(null);
         }
 
         return new URL(value);
