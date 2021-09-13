@@ -10,7 +10,7 @@ import { ResponseShortenedLink } from './ResponseShortenedLink';
 
 type ShortenedLinkRequest = {
   url: string;
-  customerId: string;
+  customer_id: string;
 };
 
 @injectable()
@@ -27,10 +27,10 @@ class CreateShortenedLink {
   ) {}
 
   async run({
-    customerId,
+    customer_id,
     url,
   }: ShortenedLinkRequest): Promise<ResponseShortenedLink> {
-    const customer = await this.customersRepository.findById(customerId);
+    const customer = await this.customersRepository.findById(customer_id);
 
     if (!customer) {
       throw new Error('Customer not found');
@@ -55,7 +55,7 @@ class CreateShortenedLink {
     const links = Links.build({
       token,
       url: instanceURL,
-      customerId,
+      customerId: customer_id,
     });
 
     await this.linksRepository.save(links);
