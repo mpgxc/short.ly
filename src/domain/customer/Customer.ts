@@ -1,24 +1,24 @@
 import {
-    AbstractAccount,
-    TAccountProps,
+  AbstractAccount,
+  TAccountProps,
 } from '@domain/account/AbstractAccount';
 import { Links } from '@domain/links';
 
 class Customer extends AbstractAccount {
-    private readonly links: Links[];
+  private readonly links: Links[];
 
-    private constructor(props: TAccountProps, id?: string) {
-        super(props, id);
-        this.links = [];
-    }
+  private constructor(props: TAccountProps, id?: string) {
+    super(props, id);
+    this.links = [];
+  }
 
-    public getLinks(): Links[] {
-        return this.links;
-    }
+  public getLinks(): Links[] {
+    return this.links;
+  }
 
-    static build(data: TAccountProps, id?: string): Customer {
-        return new Customer(data, id);
-    }
+  static build(data: TAccountProps, id?: string): Customer {
+    return new Customer(data, id);
+  }
 }
 
 export { Customer };

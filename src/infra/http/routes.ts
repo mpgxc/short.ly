@@ -1,9 +1,9 @@
 import { Router } from 'express';
 
 import {
-    createShortenedLinkController,
-    showShortenedLinkController,
-    createShortenedQRCodeController,
+  createShortenedLinkController,
+  showShortenedLinkController,
+  createShortenedQRCodeController,
 } from '@presenter/controllers/links';
 
 const routes = Router();
